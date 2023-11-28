@@ -1,6 +1,6 @@
 # CPSC 335 Fall 2023 Project 2
 ## Abstract
-In this project, you will design, implement and analyze an exhaustive search algorithm, dynamic programming algorithm for solving the same problem.
+In this project: design, implement and analyze an exhaustive search algorithm, dynamic programming algorithm for solving the same problem.
 ## The Stock Purchase Maximization Problem
 The problem seeks to maximize the number of stocks an investor may purchase, given a limited amount of available financial resources. The future values of these stocks are not considered at the time of purchase.
 
@@ -8,7 +8,7 @@ This problem can be mathematically represented as:
 
 `input:` a set of items (<i>s<sub>i</sub></i>, <i>v<sub>i</sub></i>) each having a number of stocks <i>s<sub>i</sub></i> and value. <i>M</i> is the total available investment sum. 
 
-`output:` maximum number of stocks, such that the total value of those stocks is at most M.
+`output:` maximum number of stocks, such that the total value of those stocks is at most <i>M</i>.
 
 ## Instructions
 1. Have Python 3.11.5 installed.
@@ -20,7 +20,7 @@ The exhaustive approach defines a recursive function `maximize` that explores al
 Time complexity: O(2<sup>n</sup>)
 
 ## Dynamic Approach
-The dynamic approach creates a 2D array `dp` where `dp\[i\]\[j\]` represents the maximum number of stocks that can be purchased with an investment of `j` considering only the first `i` stocks. We fill in this array iteratively, considering both including and excluding each stock in the calculation. 
+The dynamic approach creates a 2D array `dp` where `dp[i][j]` represents the maximum number of stocks that can be purchased with an investment of `j` considering only the first `i` stocks. We fill in this array iteratively, considering both including and excluding each stock in the calculation. 
 
 Time complexity: O(n)
 
