@@ -17,7 +17,7 @@ This problem can be mathematically represented as:
 ## Exhaustive Approach
 The exhaustive approach defines a recursive function `maximize` that explores all possible candidates of stocks. It considers two options for each stock: including it and excluding it. The function returns the maximum number of stocks that can be purchased within the given investment.
 
-Time complexity: O(2^n)
+Time complexity: O(2<sup>n</sup>)
 
 ## Dynamic Approach
 The dynamic approach creates a 2D array `dp` where `dp\[i\]\[j\]` represents the maximum number of stocks that can be purchased with an investment of `j` considering only the first `i` stocks. We fill in this array iteratively, considering both including and excluding each stock in the calculation. 
@@ -25,7 +25,7 @@ The dynamic approach creates a 2D array `dp` where `dp\[i\]\[j\]` represents the
 Time complexity: O(n)
 
 ## Conclusion
-This dynamic programming approach has a time complexity of O(n), which is much more efficient than the exhaustive recursive approach (time complexity: O(2<super>n</super>)) for larger inputs. This makes the dynamic approach significantly better than the exhaustive.
+This dynamic programming approach has a time complexity of O(n), which is much more efficient than the exhaustive recursive approach (time complexity: O(2<sup>n</sup>)) for larger inputs. This makes the dynamic approach significantly better than the exhaustive.
 
 ## Author
 Ronald Lee (ronaldvlee@csu.fullerton.edu)
