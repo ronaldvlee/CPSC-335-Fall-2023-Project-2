@@ -1,40 +1,34 @@
-from typing import List
+from project2 import stock_maximization_dynamic, stock_maximization_exhaustive
+from parse_input import parse_input
 
-# [𝑥,𝑦] attributes, where 𝑥 = numbers of trading stocks and 𝑦 = monetary value of the trading stocks
+with open('output.txt', 'w') as file: # creates a new empty output file
+    pass
 
-def stock_maximization_exhaustive(M: int, items: List[List[int]]) -> int:
-    def maximize(index: int, remaining_M: int):
-        if index < 0 or remaining_M <= 0: # base case if the index is out of bounds
-            return 0, []                  # or no more money return an empty set
-        
-        number_of_included_stocks, included_stocks = 0, []
-        quantity, value = items[index]
+data = parse_input('input.txt')
 
-        if remaining_M >= value:
-            number_of_included_stocks, included_stocks = maximize(index - 1, remaining_M - value)
-            number_of_included_stocks += quantity
-            included_stocks.append([quantity, value])
+for portfolio in data:
+    stock_list, total_investment = portfolio
 
-        number_of_excluded_stocks, excluded_stocks = maximize(index - 1, remaining_M)
+    max_stocks_e, selected_stocks_e = stock_maximization_exhaustive(total_investment, stock_list)
+    max_stocks_d, selected_stocks_d = stock_maximization_dynamic(total_investment, stock_list)
 
-        if number_of_included_stocks >= number_of_excluded_stocks:
-            return number_of_included_stocks, included_stocks
-        
-        return number_of_excluded_stocks, excluded_stocks
+    with open('output.txt', 'a') as file:
+        file.write(f"--- stock list: {stock_list}; budget: {total_investment} ---\n")
+        file.write(f"Exhaustive Max: {max_stocks_e}\n")
+        file.write(f"Dynamic Max: {max_stocks_d}\n\n")
 
-    return maximize(len(items) - 1, M)
+# stock_list = [ [1, 2], [4, 3], [3, 6], [6, 7]]
+# total_investment = 10
 
-def stock_maximization_dynamic(M: int, items: List[List[int]]) -> int:
-    return
-
-stock_list = [ [1, 2], [4, 3], [3, 6], [6, 7]]
-total_investment = 12
-max_stocks, selected_stocks = stock_maximization_exhaustive(total_investment, stock_list)
-print('-------------EXHAUSTIVE-------------')
-print(f"Maximum number of stocks: {max_stocks}")
-print(f"Selected stocks: {selected_stocks}")
-print('\n')
-print('-------------DYNAMIC----------------')
+# print('-------------EXHAUSTIVE-------------')
+# max_stocks, selected_stocks = stock_maximization_exhaustive(total_investment, stock_list)
+# print(f"Maximum number of stocks: {max_stocks}")
+# print(f"Selected stocks: {selected_stocks}")
+# print('\n')
 
 
-print('\n')
+# print('-------------DYNAMIC----------------')
+# max_stocks, selected_stocks = stock_maximization_dynamic(total_investment, stock_list)
+# print(f"Maximum number of stocks: {max_stocks}")
+# print(f"Selected stocks: {selected_stocks}")
+# print('\n')

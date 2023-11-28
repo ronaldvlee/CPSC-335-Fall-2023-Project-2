@@ -9,3 +9,16 @@ This problem can be mathematically represented as:
 `input:` a set of items (<i>s<sub>i</sub></i>, 𝑣𝑖) each having a number of stocks si and value. M is the total available investment sum. 
 
 `output:` maximum number of stocks, such that the total value of those stocks is at most M.
+
+## Instructions
+1. Have Python 3.11.5 installed.
+2. Run `py .\main.py` (or `python .\main.py` depending on how PATH is setup) in terminal.
+
+## Exhaustive Approach
+
+## Dynamic Approach
+
+## Conclusion
+
+## Author
+Ronald Lee (ronaldvlee@csu.fullerton.edu)
