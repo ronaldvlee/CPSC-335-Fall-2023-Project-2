@@ -12,7 +12,8 @@ This problem can be mathematically represented as:
 
 ## Instructions
 1. Have Python 3.11.5 installed.
-2. Run `py .\main.py` (or `python .\main.py` depending on how PATH is setup) in terminal.
+2. Put in test cases in `input.txt`, where the first line is the stocks, and the second line is the total investment, each separated by a new line.
+3. Run `py .\main.py` (or `python .\main.py` depending on how PATH is setup) in terminal.
 
 ## Exhaustive Approach
 The exhaustive approach defines a recursive function `maximize` that explores all possible candidates of stocks. It considers two options for each stock: including it and excluding it. The function returns the maximum number of stocks that can be purchased within the given investment.
